@@ -1,22 +1,41 @@
 // NEURAL NET FOR RIGHT 1
 
-
 #include "mbed.h"
 #include "MX28/MX28.h"
 #include <cmath>
 
 #define PI 3.14159265
-#define tcPEP 0x09c0
-#define tcAEP 0x0640
-#define ft_mStanceP 0x0890
-#define ft_SwingP 0x0730
-#define ct_highP 0x0770
-#define ct_lowP 0x09c8
-#define des_Height 14.0
-MX28 mx28(p13,p14,3000000);
+
+
+// Posterior and Anterior extreme positions for the ThC joint.
+// Note: FOR CONTRALATTERAL LEGS SWAP tcPEP and tcAEP
+#define tcPEP (0x1000 - 0x0866)
+#define tcAEP (0x1000 - 0x0640)
+
+// FTi joint stance and swing goal angle positions.
+#define ft_StanceP 0x0890  
+#define ft_SwingP 0x06A4   
+
+// CTr joint highest and lowest goal angle positions.
+#define ct_highP 0x0890     
+#define ct_lowP 0x0Af0    
+  
+#define des_Height 14      // Desired Robot Height 
+
+// Global Variables for the coxa,femur,tibia length
+// Also for the offset angle in readians.
+static const double coxa = 5;
+static const double femur =22.5;
+static const double tibia =20.5;
+static const double offset = (40*PI)/180;
+
+// The pins used for the serial communication.
+MX28 mx28(p9,p10,3000000);
+
 DigitalOut startStopLED(LED1);
 DigitalOut stepLED(LED3);
 DigitalOut stanceLED(LED4);
+// Touch Sensor input.
 DigitalIn pb(p30);
 static const int updateInterval = 100000;       //Step size.......
 static const int ctrlInterval = 10000;          //Servo control time interval...100Hz
@@ -24,18 +43,20 @@ Timer stepTimer;
 Timer ctrlTimer;
 Serial pc(USBTX,USBRX);
 bool isWalking = false;
+
 enum Commands
 { 
     Start = 0x00,
     Stop = 0x01    
 };
+
 //**********************************************
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 //*******************JOINTs ********************
+// The Joint class represents the actions that a joint can do.
 class Joint
 
-// Set and Get method constructors.
 {
 public:
     void SetId(uint8_t id);
@@ -43,7 +64,6 @@ public:
     uint16_t GetVelocity();
     void Pro(double speed);
     void Ret(double speed);
-    void InStepLev(double input);
     void Lev(double speed);
     void Dep(double speed);
     void Flx(double speed);
@@ -57,9 +77,9 @@ private:
 void Joint::Flx(double speed)
 {
      if(jointId % 3 == 0){
-        uint16_t mvspeed = (uint16_t)speed;
+        uint16_t mvspeed = (uint16_t)speed; 
         mx28.SetMovingSpeed(jointId,mvspeed);
-        mx28.SetGoalPosition(jointId,ft_mStanceP);
+        mx28.SetGoalPosition(jointId,ft_StanceP);
     }
 }
 
@@ -90,14 +110,7 @@ void Joint::Lev(double speed)
     }
 }
 
-void Joint::InStepLev(double input)
-{
-    if(jointId % 3 == 2){
-        mx28.SetMovingSpeed(jointId,0x0010);
-        uint16_t des_p = (uint16_t)input;
-        mx28.SetGoalPosition(jointId,des_p);
-    }
-}
+
 
 void Joint::Ret(double speed)
 {
@@ -133,22 +146,25 @@ void Joint::SetId(uint8_t id)
 {
     Joint::jointId = id;
     switch (id % 3){
-        case 1:
-            mx28.SetCWAngleLimit(id,0x0400); // 1024 // 90
-            mx28.SetCCWAngleLimit(id,0x0c00); // 3072 // 270 
+        // ThC
+		case 1:
+            mx28.SetCWAngleLimit(id,0x078A); // 1930 // 170 // real angle is -10
+            mx28.SetCCWAngleLimit(id,0x0AAA); // 2730  // 240 // real angle is 60 
             break;
+		// CTr	
         case 2:
-            mx28.SetCWAngleLimit(id,0x07f0); // 2032 // 180
-            mx28.SetCCWAngleLimit(id,0x09f0); // 2544 // 224
+            mx28.SetCWAngleLimit(id,0x0708); // 1800 // 160 // real angle is 110
+            mx28.SetCCWAngleLimit(id,0x0CE4); // 3300 // 290 // real angle is -20
             break;
+		// FTi
         case 0:
-            mx28.SetCWAngleLimit(id,0x0400);  // 1024 // 90
-            mx28.SetCCWAngleLimit(id,0x0980); // 2432 // 214
+            mx28.SetCWAngleLimit(id,0x04E2);  // 1250 // 110 // real angle is 20
+            mx28.SetCCWAngleLimit(id,0x0988); // 2440 // 215 // real angle is 125
             break;
     }
 }
 
-Joint jointTC;                                      //All neurons and joints are global variables
+Joint jointTC;                                     
 Joint jointCT;
 Joint jointFT;
 
@@ -156,17 +172,22 @@ Joint jointFT;
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 //****************Sigmoid&MotorServo Neuron****************
-class Hidden                                       //Act as hidden layers
+// The Hidden Layer of the Neural Network.
+class Hidden                                       
 {
 public:
-    
-    Hidden(double selfweight,double bias);
+	
+	Hidden(double selfweight,double bias);
     //**********Get Outputs From Sigmoid Neuron and Push to Sigmoid Layer***********//
     double Push_s(double input1,double input2,double weight1,double weight2);
     //********** "OR" Neuron **********//
     double Push_or(double input1, double input2, double weight1, double weight2);
     //********** "AND" Neuron **********//
     double Push_and(double input1, double input2, double weight1, double weight2);
+	
+	//********** Sigmoid neuron function for angle inputs **********//
+	double Push_s_sensor(double input_angle, double angle_weight,double SN_Thresh);
+
 private:
     double selfWeight;
     double bias;
@@ -174,27 +195,35 @@ private:
 
 double Hidden::Push_and(double input1, double input2, double weight1, double weight2)
 {
-        //printf("********(%f)********\n",input2*weight2+bias);
     if(input1*weight1+bias > 0 && input2*weight2+bias > 0){
         return 1.0;
-    }
-    return 0.0;
+    } else {
+		return 0.0;
+	}
 }
 
 double Hidden::Push_or(double input1, double input2, double weight1, double weight2)
 {
-        //printf("********(%f)********\n",input2*weight2+bias);
     if(input1*weight1+bias > 0 || input2*weight2+bias > 0){
         return 1.0;
-    }
-    return 0.0;
+    } else {
+		return 0.0;
+	}
 }
-
+double Hidden :: Push_s_sensor(double input1,double weight1, double SN_Thresh)
+{
+	
+	double bias_adj = 3.2;
+	double TN_bias = -(weight1*SN_Thresh+0.5*selfWeight)+bias_adj;
+	double input = -(input1*weight1+selfWeight+TN_bias);
+	double result = 1/(1+std::exp(input));          //SIGMOID function 
+    return result;
+}
 double Hidden::Push_s(double input1,double input2,double weight1,double weight2)
 {
-    double input = -(input1*weight1+input2*weight2+selfWeight+bias);
+    
+	double input = -(input1*weight1+input2*weight2+selfWeight+bias);
     double result = 1/(1+std::exp(input));          //SIGMOID function 
-        //pc.printf("%f\n",result);
     return result;
 }
 
@@ -205,24 +234,25 @@ Hidden::Hidden(double selfweight,double bias)
 }
 
 // ThC
-Hidden sigmoid17(5,-17.5);                         
-Hidden m_Servo14(0,3.7);
+Hidden sigmoid17(5,-17.5);   
 
 // CTr
-Hidden sigmoid18(5,18.28);
-Hidden sigmoid19(5,-15.48);
-Hidden orNeuron20(0,-26.0);
+Hidden sigmoid18(5,18.48);
+
+Hidden sigmoid19(5,-19.48);
+Hidden orNeuron20(0,-29);
 Hidden sigmoid21(5,15.81);
-Hidden sigmoid15(16,-8.0);
+Hidden sigmoid15(5,-2.00);
 
 // FTi
-Hidden sigmoid25(5,-16.26);
+Hidden sigmoid25(5,-20.26);
 Hidden sigmoid26(5,12.5);
-Hidden orNeuron27(0,-29.0);
-Hidden sigmoid28(5,20.26);
-Hidden sigmoid29(5,-16.5);
-Hidden andNeuron30(0,-30.0);
-Hidden sigmoid16(16.0,-8.0);
+Hidden orNeuron27(0,-29);
+Hidden sigmoid28(5,15.26);
+Hidden sigmoid29(5,-17.5);
+Hidden andNeuron30(0,-29);
+Hidden sigmoid16(16,-8.0);
+
 
 //******************************************************************
 ////////////////////////////////////////////////////////////////////
@@ -232,43 +262,41 @@ class Servo
 {
 public:
     Servo(double bias);
-    double ThCServo(double tcAngle, double tcVelocity, double output17, double ang_Weight, double vel_Weight);
-    double CTrHeightServo(double tcAngle, double ctAngle, double ftAngle, double tcOffset, double coxaL, double tibiaL, double femurL);
-    void FTiServo();
+    double ThCServo(double tcAngle, double tcVelocity, double output17);
+    double CTrHeightServo(double femurH, double tibiaH, double ctAngle, double cta_w);
+	void FTiServo();
 private:
     double bias;
 };
 
-double Servo::CTrHeightServo(double tcAngle, double ctAngle, double ftAngle, double tcOffset, double coxaL, double tibiaL, double femurL)
+double Servo::CTrHeightServo(double ftAngle, double ctAngle, double tcAngle, double cta_w)
 {
-    /****
-    double ch1 = sin(PI*((3072-ctAngle)*0.088-tcOffset)/180)*femurL;
-    double ch2 = sin(PI*((ftAngle-3072+ctAngle)*0.088+tcOffset)/180)*tibiaL;
-    double tcangle = abs(tcAngle-2048)*0.088;
-    double ch = (ch2-ch1+coxaL*cos(40*PI/180))*cos(tcangle*PI/180)*cos(40*PI/180);
-        //printf("***** %f *****\n",ch);
-    return -ch + des_Height;
-    **/
-    // Equation: des_Height = (sin(r-x+f)*Lt-sin(x-f)*Lf+cos(f)*Lc)*cos(tc)*cos(f)
-    double r = PI*ftAngle*0.088/180;
-    double f = 40*PI/180;
-    double tcangle = PI*abs(tcAngle-2048)*0.088/180;
-    
-    double C = (des_Height/cos(f)/cos(tcangle)-cos(40*PI/180)*coxaL);
-    double B = cos(r+f)*tibiaL+cos(f)*femurL;
-    double A = sin(r+f)*tibiaL+sin(f)*femurL;
+
+
+	
+	double ftRad = PI*ftAngle/180;
+	double tcRad = PI*abs(tcAngle)/180;
+	
+    double C = ((des_Height/cos(offset))/cos(tcRad)-cos(offset)*coxa);
+    double B = cos(ftRad+offset)*tibia+cos(offset)*femur;
+    double A = sin(ftRad+offset)*tibia+sin(offset)*femur;
     double X = sqrt((C*C+B*B)/(B*B+A*A));
-    double des_ctAngle = 3072- acos(X)*180/PI/0.088;
-        //printf("*** %f ***\n",des_ctAngle);
-    return des_ctAngle;
+    double des_ctAngle = acos(X)*180/PI;
+	
+
+	double difference = des_ctAngle-ctAngle;
+
+	if (difference >=0)
+		return 1;
+	else 
+		return -1;
+
 }
 
-double Servo::ThCServo(double tcAngle, double tcVelocity, double output17, double ang_Weight, double vel_Weight)
+double Servo::ThCServo(double tcAngle, double tcVelocity, double output17)
 {
-	///////////////////////// REVERSE LEGS HERE //////////////////////////////////////////////////////////
-	//// Input1 Represents the angle of ThC joint
-    double input1 = 4096 - tcAngle;
-    double des_p = 0;
+
+	double des_p = 0;
     if(tcVelocity > 1023){
         tcVelocity = tcVelocity - 1023;
     }
@@ -276,19 +304,16 @@ double Servo::ThCServo(double tcAngle, double tcVelocity, double output17, doubl
         tcVelocity = -tcVelocity;
     }
     double input2 = tcVelocity;
-    if(output17 > 0.5){
-        des_p  = 2048 - (double)tcPEP;
+    if(output17 >= 0.5){
+        des_p  = ((double)tcPEP - 2048)*0.088;
+    } else {
+		des_p  = ((double)tcAEP - 2048)*0.088;
     }
-    
-    if(output17 < 0.5){
-        des_p  = 2048 - (double)tcAEP;
-    }
-    double output = input1*ang_Weight + 0.01*input2*vel_Weight + des_p*bias;
-    if(output > 0 ){
-        return 1;
-    }
-    else
-        return -1;
+	double output = des_p*(-32) + tcAngle*(-33)+bias ;
+	double result = 1/(1+std::exp(-output));
+
+	return result;
+	
 }
 
 Servo::Servo(double bias)
@@ -296,9 +321,10 @@ Servo::Servo(double bias)
     Servo::bias = bias;
 }
 
-Servo servo14(3.7);
+Servo servo14(-22);
 Servo servo24(des_Height);
 //******************************************************************
+////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 //*******************BISTABLE MODULE********************************
@@ -307,61 +333,52 @@ class Bimodule
 public:
     Bimodule(double bias);
     void tcJointCtrl(double input, double weight, double speed);
-    void ctInstepCtrl(double input);
-    void ctJointCtrl(double input, double weight, double speed);
+	void ctJointCtrl(double input,double weight, double speed);
     void ftJointCtrl(double input, double weight, double speed);
-    void heightCtrl(double input);
+	
 private:
     double bias;
 };
 
-void Bimodule::ctInstepCtrl(double input)
-{
-    jointCT.InStepLev(input);
-}
 
 void Bimodule::ftJointCtrl(double input, double weight, double speed)
 {
-    double output = input*weight + bias;
-        //printf("///// %f /////\n",output);
-    if(output > 0){
-        if(output >= 0.9 && output <= 2.0){
-            jointFT.Ext(speed);
-        }
-        
-        if(output >= 15.9){
-            jointFT.Flx(speed);
-        }
-    }
+    double output = input*weight + bias; 
+	
+
+	if (output>0 && input>=0.5){
+		jointFT.Flx(speed);
+		}
+	if (output>0 && input<0.5) {
+		jointFT.Ext(speed);
+	}
+	
 }
 
 void Bimodule::ctJointCtrl(double input, double weight, double speed)
 {
-    double output = input*weight+ bias;
-        //printf("***** %f *****\n",output);
-    if(output > 0){
-        if(output == 8.0){
-            jointCT.Lev(speed);
-        }
-        if(output >= 9.95){
-            jointCT.Dep(speed);
-        }
-    }
+    double output = input*weight + bias;
+	if (output >0&&input>=0.5){
+		jointCT.Lev(speed);
+}		
+	if (output >0&&input<0.5){
+		jointCT.Dep(speed);	
+	}
+	
 }
 
 void Bimodule::tcJointCtrl(double input, double weight, double speed)
 {
     double output = input*weight + bias;
-        printf("***** %f *****\n",output);
-    if(output > 0){
-        if(output == 16){
-            jointTC.Pro(speed);
-        }
-        
-        if(output == 48){
-            jointTC.Ret(speed);
-        }
-    }
+	
+	// Swap input conditions for contra-lateral legs.
+	if (output >0 && input<=0.5){
+
+		jointTC.Pro(speed);}
+	if (output > 0 && input>0.5){
+
+		jointTC.Ret(speed);}
+    
 }
 
 Bimodule::Bimodule(double bias)
@@ -375,13 +392,14 @@ Bimodule Protraction(-16);
 // neuron 9
 Bimodule Retraction(16);
 // neuron 10
-Bimodule Levation(-14);
+Bimodule Levation(-10);
 // neuron 11
-Bimodule Depression(5);
+Bimodule Depression(10);
 // neuron 12
-Bimodule Flexion(-14);
+Bimodule Flexion(-16);
 // neuron 13
-Bimodule Extension(2);
+Bimodule Extension(16);
+
 //******************************************************************
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
@@ -389,7 +407,7 @@ Bimodule Extension(2);
 class Control
 {
 public:
-    //Constructor
+    
     Control(uint8_t id1, uint8_t id2, uint8_t id3);
     //Control Network
     void Control_all(uint16_t speed);
@@ -397,15 +415,19 @@ private:
     double output17;
     double output14;
     
-	double output18;
+    double output18;
     double output19;
+	double output20;
     double output21;
     double output15;
     
-	double output25;
+	double output24;
+    double output25;
     double output26;
+	double output27;
     double output28;
     double output29;
+	double output30;
     double output16;
 };
 
@@ -413,7 +435,7 @@ void Control::Control_all(uint16_t speed)
 {
     ctrlTimer.reset();
     ctrlTimer.start();
-    int handler = 10;
+    int handler = 10 ;
     while(isWalking&&(handler>0))
     {
         int timerValue = ctrlTimer.read_us();
@@ -422,74 +444,87 @@ void Control::Control_all(uint16_t speed)
             pb.mode(PullUp);
             double step_speed = (unsigned)speed;
             double tcAngle = (unsigned)jointTC.GetAngle();
-			double tcVel = (unsigned)jointTC.GetVelocity();
+            double tcVel = (unsigned)jointTC.GetVelocity();
             double ctAngle = (unsigned)jointCT.GetAngle();
             double ftAngle = (unsigned)(jointFT.GetAngle()-0x0400);
-            double f_Contact = !pb?1.0:0.0;
-            
-            //.....................ThC Joint Control............
-			// tcAngle and tcVel are neuron1 and neuron2. f_Contact = neuron7
-            
-			// 7->17 (input1, input2, weight1, weight2)
-			output17 = sigmoid17.Push_s(0,f_Contact,0,20);                            // 1 --> Stance, 0 --> Swing
-            // 1,2,17->14
-			output14 = servo14.ThCServo(tcAngle,tcVel,output17,-4.0,-0.5);
-            // 14->8
+			double f_Contact = !pb?1.0:0.0;
+           
+			// Adjusting the angles to be the same as in Von Twickel's implementation.
+			tcAngle = tcAngle - 2048;
+			tcAngle = -tcAngle *0.088;
+			// Reverse tcAngle for contra-lateral legs.
+			tcAngle = -tcAngle;
+			ctAngle = 270-ctAngle*0.088;
+			ftAngle = ftAngle*0.088;
+			
+			//.....................ThC Joint Control............//
+            // 7->17
+            output17 = sigmoid17.Push_s_sensor(f_Contact,20,0.5);                          
+			// 1,2,17->14
+            output14 = servo14.ThCServo(-tcAngle,tcVel,output17);
+			// 14->8
+			
 			Protraction.tcJointCtrl(output14,32,step_speed);
             // 14->9
-			Retraction.tcJointCtrl(output14,-32,step_speed);
-            
-            //.....................CTr Joint Control............
+            Retraction.tcJointCtrl(output14,-32,step_speed);  
+			
+			
+            //.....................CTr Joint Control............//
+			double dep_to_lev_ft = ftAngle - 98.5; 
+			double dep_to_lev_tc = tcAngle - 10;
+            double lev_to_dep_ft = ftAngle - 70;
+			
 			// 1->18
-            output18 = sigmoid18.Push_s((2048-tcAngle)*0.088/90,0,-31,0);
-            // 5->19
-			output19 = sigmoid19.Push_s(0,ftAngle*0.088/180,0,32);
-            // 18,19->20
-			double output20 = orNeuron20.Push_or(output18,output19,32,30);
-                //printf("*****%f,%f,%f,%f,%f******\n", output18, output19, output20, tcAngle*0.088, ftAngle*0.088);
-            // 5->21
-			output21 = sigmoid21.Push_s(0,ftAngle*0.088/180,0,-32);
+			output18 = sigmoid18.Push_s_sensor(dep_to_lev_tc,-32,0.556);
+			// 5->19
+            output19 = sigmoid19.Push_s_sensor(dep_to_lev_ft,32,0.631);   
+			// 5->21
+            output21 = sigmoid21.Push_s_sensor(lev_to_dep_ft,-32,0.472);
+			// 18,19 -> 20
+			output20 = orNeuron20.Push_or(output18,output19,32,32);		
 			// 20,21->15
-			output15 = sigmoid15.Push_s(output20,output21,32,-24);                  // >0.6 --> Levation, <0.6 --> Depression
-                //printf("***** %f %f,%f,%f *****\n",output20,output21,output15,ftAngle*0.088);                               
-            // HEIGHT CONTROLLER
-			if(tcAngle < 2048 && f_Contact == 1.0){                                 // Tibia length:20.5, Femur length: 22.5, Coxa length:5.0
-                // 
-				double output24 = servo24.CTrHeightServo(tcAngle,ctAngle,ftAngle,40,5.0,20.5,22.5);
-                Levation.ctInstepCtrl(output24+50);
-                    //printf("***** %f,%f *****\n",output24,ctAngle);
-            }
-            else{
-				// 15->10
-                Levation.ctJointCtrl(output15,8,step_speed);
-                // 15->11
-				Depression.ctJointCtrl(output15,-8,step_speed);
-            }
-            
+            output15 = sigmoid15.Push_s(output20,output21,32,-30);                 
+           
+		   // HEIGHT CONTROLLER
+			output24 = servo24.CTrHeightServo(ftAngle,ctAngle,tcAngle,-4.2);
+			if (f_Contact>0.5){
+				if (output24>0){
+					Levation.ctJointCtrl(output24,32,step_speed);
+				} else {
+					Depression.ctJointCtrl(output24,32,step_speed);
+				}
+			}
+			// 15->10
+            Levation.ctJointCtrl(output15,32,step_speed);
+            // 15->11
+            Depression.ctJointCtrl(output15,-32,step_speed);
+			
+			
             //.....................FTi Joint Control............
-            //5->25
-			output25 = sigmoid25.Push_s(0,ftAngle*0.088/180,0,32);
-            //7->26
-			output26 = sigmoid26.Push_s(0,f_Contact,0,-20);
-            //25,26->27
-			double output27 = orNeuron27.Push_or(output25,output26,30,30);
-                //printf("***** %f,%f,%f,%f ******\n", output25, output26, output27, ftAngle);
-            //5->28
-			output28 = sigmoid28.Push_s(0,ftAngle*0.088/180,0,-32);
-            // 7->29
-			output29 = sigmoid29.Push_s(0,f_Contact,0,20);
-            //28,29->30
-			double output30 = andNeuron30.Push_and(output28,output29,20,20);
-                //printf("***** %f,%f,%f,%f ******\n", output28, output29, output30, ftAngle);
+            
+			double flx_to_ext_ft = ftAngle - 95;
+			double ext_to_flx_ft = ftAngle - 95;
+			
+			//5->25
+            output25 = sigmoid25.Push_s_sensor(flx_to_ext_ft,32,0.611);
+			//7->26
+            output26 = sigmoid26.Push_s(0,f_Contact,0,-20);
+			//25,26->27
+            output27 = orNeuron27.Push_or(output25,output26,32,32);
+			//5->28
+            output28 = sigmoid28.Push_s_sensor(ext_to_flx_ft,-32,0.611);
+			// 7->29
+            output29 = sigmoid29.Push_s(0,f_Contact,0,20);
+			//28,29->30
+            output30 = andNeuron30.Push_and(output28,output29,32,32);
             // 27,30->16
-			output16 = sigmoid16.Push_s(output27,output30,-24,30);                //0 --> Extension, 1 --> Flexion
-                //printf("***** %f,%f,%f,%f *****\n",output27, output30, output16, ftAngle);
-            // 16->12
+            output16 = sigmoid16.Push_s(output27,output30,-30,32);                     
+			// 16->12
 			Flexion.ftJointCtrl(output16,32,step_speed);
             // 16->13
-			Extension.ftJointCtrl(output16,-4.0,step_speed);
-            ctrlTimer.reset();
-			//????????????????
+			Extension.ftJointCtrl(output16,-32,step_speed);
+            
+			ctrlTimer.reset();
             handler = handler - 1;
                 
         }
@@ -502,8 +537,7 @@ Control::Control(uint8_t id1, uint8_t id2, uint8_t id3)
     jointTC.SetId(id1);
     jointCT.SetId(id2);
     jointFT.SetId(id3);
-    // FOR SIDEWALKING SET OUTPUT17 TO 0
-    //output17 = 0.0;
+
 }
 //**********************************************
 ////////////////////////////////////////////////
@@ -512,21 +546,21 @@ Control::Control(uint8_t id1, uint8_t id2, uint8_t id3)
 int main()
 {
     pc.baud(115200);
-    
-    Control control(0x07, 0x08, 0x09);
+ 
+	Control control(0x07, 0x08, 0x09);
     while(true)
     {
         if(pc.readable()){
             uint8_t command = pc.getc();
             switch(command)
             {
-                case Start:                    
+                case '1':                    
                     stepTimer.reset();
                     stepTimer.start();
                     isWalking = true;
                     startStopLED = 1;
                     break;
-                case Stop:                    
+                case '2':                    
                     stepTimer.stop();
                     isWalking = false;
                     startStopLED = 0;
@@ -537,11 +571,12 @@ int main()
                     break;
             }
         }
+	
         if(isWalking){
             int timerValue = stepTimer.read_us();
             if(timerValue > updateInterval){
                 stepLED = !stepLED;
-                control.Control_all(0x0020);
+				control.Control_all(0x0020);
                 stepTimer.reset();
             }
         }
