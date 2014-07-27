@@ -1,0 +1,1013 @@
+Barry-->  (ADS, 46) (COC, 74) (COPT, 100) (PM, 89) 
+Antil-->   (AR, 82) (AV, 57) (BIO2, 71) (DAPA, 64) (EXC, 43) (IRR, 56) (RTN, 67) (SLIP, 40) (TDD, 67) 
+Annand-->  (ABS, 52) (ADBS, 55) (AGTA, 92) (AR, 97) (DISS, 97) (IJP, 68) 
+Acy-->   
+Daniella-->   
+Arledge-->   
+Kaley-->   
+Courtney-->   
+Cynthia-->   
+Arden-->   
+Baird-->   
+Applin-->   
+Apsey-->   
+Arendall-->   
+Ake-->   (COPT, 71) 
+Blake-->   
+Allison-->   
+Addington-->   
+Amison-->   (DAPA, 94) (HCI, 51) (RTN, 88) 
+Oliver-->  (COC, 84) (DMR, 68) (ES, 77) (IRP, 43) 
+Akerley-->   (EXC, 84) 
+Agar-->  (ABS, 94) (ASR, 70) (AV, 85) 
+Kamryn-->  (ANLP, 98) (DAPA, 80) (DMR, 87) (INF2D, 50) 
+Leo-->  (BIO1, 98) 
+Adrian-->  (ABS, 41) (HCI, 40) (IJP, 40) 
+Darby-->   (INF1-CG, 70) 
+Arkell-->   (AV, 81) (BIO2, 99) 
+Annand-->   (BIO1, 40) (EXC, 74) (IRP, 75) (IRR, 71) (TDD, 69) 
+Kacie-->  (IRR, 57) 
+Ailey-->   (EXC, 82) (IRP, 95) 
+Alton-->  (ADS, 62) (HCI, 86) (TDD, 73) 
+Finlay-->  (ADS, 91) (COPT, 44) 
+Abram-->   (AR, 46) 
+Leon-->  (CT, 52) 
+Aldredge-->   (IRR, 56) 
+Crystal-->   (DISS, 63) 
+Abbitt-->   (ANLP, 82) (NIP, 99) (PM, 72) 
+Ackerman-->  (ABS, 83) (AR, 58) (DAPA, 78) (IAML, 74) 
+Agard-->   (AGTA, 78) (BIO1, 65) (TDD, 81) 
+Sebastian-->  (BIO2, 54) (IJP, 68) 
+Kieran-->  (ES, 99) 
+Cristal-->  (ABS, 88) (DISS, 54) (IRP, 91) (NIP, 59) 
+Kalyn-->  (ANLP, 68) (AV, 97) (INF1-CG, 80) 
+Logan-->   (TTS, 75) 
+Anchors-->  (ADS, 83) (EXC, 59) (TTS, 65) 
+Allin-->   (BIO2, 100) (DAPA, 72) (PPLS, 73) 
+Mason-->  (ANLP, 81) (PM, 91) 
+Alfrey-->   (ES, 45) 
+Ackley-->   (ADBS, 63) (AGTA, 65) (IRP, 77) (PM, 61) (PPLS, 80) (TTS, 84) 
+Allred-->   (DISS, 79) (IRR, 100) 
+Angers-->   (ANLP, 74) (ASR, 46) (COC, 75) (INF2D, 97) 
+Colleen-->  (BIO2, 66) 
+Aldis-->   
+Alwood-->   
+Leo-->   
+Akin-->  (ADS, 83) (ANLP, 51) (CCN, 48) (IJP, 75) (TTS, 68) 
+Allmand-->   
+Allis-->   (COPT, 46) (EXC, 82) (INF1-CG, 63) (RTN, 48) 
+Anson-->  (AGTA, 75) (ANLP, 74) 
+Angleton-->  (ABS, 45) (AR, 82) (BIO2, 92) (HCI, 52) (RTN, 72) (TDD, 58) 
+Ansley-->  (ABS, 98) (ANLP, 78) 
+Alban-->   (ANLP, 100) (IJP, 63) 
+Akey-->  (ABS, 58) (IRP, 47) 
+Algood-->   (TTS, 65) 
+Alward-->   (DAPA, 65) 
+Angleton-->  (ADS, 43) (CT, 57) (HCI, 74) (PPLS, 54) 
+Bowen-->  (ABS, 65) (ADS, 50) (AR, 53) (ASR, 69) (ES, 88) (PPLS, 44) 
+Michael-->  (DAPA, 85) (PM, 55) (TDD, 56) 
+Kaelyn-->  (HCI, 41) (NIP, 64) 
+Alvey-->   (COC, 95) 
+Allerton-->   (ANLP, 71) (CCN, 64) 
+Alman-->   
+Abbey-->   (ADBS, 73) (BIO2, 87) (COPT, 63) (TTS, 64) 
+Basil-->  (ADBS, 84) (AGTA, 60) (CT, 78) (IRP, 95) 
+Adley-->   (CCN, 60) (TTS, 41) 
+Acre-->   (BIO2, 51) 
+Finlay-->  (CCN, 70) (HCI, 41) 
+Ann-->   (AV, 74) 
+Ailstock-->   (HCI, 64) (TTS, 60) 
+Allee-->   (DISS, 92) (EXC, 75) 
+Alway-->  (ABS, 52) (AGTA, 92) 
+Ackland-->   (INF2D, 81) (IRP, 85) 
+Alvis-->   (COC, 91) (INF2D, 75) 
+Kaley-->  (ADS, 63) (EXC, 42) (TTS, 87) 
+Allyn-->   (AR, 65) (INF2D, 82) 
+Arch-->   
+Arber-->   (INF2D, 67) 
+Alls-->   (ASR, 98) (AV, 92) 
+Cora-->   
+Ailes-->   (AV, 61) 
+Alday-->  (AGTA, 58) (AV, 51) 
+Alley-->   (BIO1, 81) (INF1-CG, 75) 
+Finley-->  (AGTA, 88) (ES, 96) (EXC, 51) (INF1-CG, 74) (TDD, 76) 
+Darlene-->  (COC, 83) (PPLS, 64) 
+Amerson-->   (BIO1, 40) (COC, 79) (DMR, 73) (ES, 51) (IAML, 57) 
+Aborn-->   (ASR, 83) (BIO1, 50) (DISS, 54) (EXC, 57) 
+Aley-->  (ABS, 99) (ADBS, 61) 
+William-->   
+Ace-->   (CT, 94) 
+Argent-->   (INF2D, 69) 
+Alcock-->   (BIO2, 60) (HCI, 97) 
+Ailey-->   (HCI, 51) (TTS, 46) 
+Baron-->   (IJP, 50) (PPLS, 75) 
+Airington-->  (ABS, 60) (ADBS, 60) (DAPA, 97) (IAML, 90) (SLIP, 96) (TTS, 69) 
+Alvord-->   (BIO1, 41) (DMR, 44) (TDD, 95) (TTS, 50) 
+James-->   (PPLS, 42) 
+Akes-->   (ASR, 95) (CT, 53) (HCI, 85) 
+Harry-->  (AGTA, 58) (AV, 44) 
+Allred-->   
+Alvord-->   (RTN, 40) 
+Angel-->   (BIO1, 85) (COPT, 83) 
+Appleton-->   
+Alvis-->   (AV, 59) (INF2D, 50) (IRP, 87) 
+Aney-->   (NIP, 54) 
+Juliet-->  (ADS, 80) (BIO2, 63) (ES, 87) (IAML, 89) (INF2D, 54) (PPLS, 99) 
+Patrick-->  (COC, 55) (CT, 61) 
+Danna-->  (AGTA, 95) (DISS, 64) (RTN, 56) (TTS, 55) 
+Adkinson-->   (PM, 72) 
+Ammon-->  (ABS, 74) (ADS, 83) (EXC, 91) (INF2D, 98) 
+Harry-->   
+Allington-->   (AV, 70) (CT, 61) (HCI, 86) 
+Benedict-->  (AGTA, 94) (BIO1, 87) (INF1-CG, 74) 
+Dayana-->  (ADBS, 57) (COC, 83) (NIP, 57) 
+Alday-->   (DMR, 96) 
+Allred-->   (DMR, 63) 
+Josh-->  (AR, 84) (ASR, 61) (BIO1, 92) (CCN, 82) (COC, 49) (EXC, 94) (IAML, 72) (IJP, 89) 
+Alltop-->   (INF2D, 68) 
+Amason-->   (ASR, 68) (IAML, 92) (IJP, 99) (IRR, 55) (TTS, 100) 
+Adley-->   (AR, 41) (BIO2, 47) 
+Finley-->  (DISS, 60) (EXC, 53) 
+Acomb-->   (AV, 53) 
+Bernard-->  (ABS, 66) 
+Anness-->   (HCI, 96) (IAML, 55) 
+Dalia-->   
+Allsop-->   (DAPA, 81) 
+Alvin-->   (HCI, 61) 
+Adcock-->   (CCN, 52) (INF2D, 86) 
+Danna-->  (AV, 90) (NIP, 80) (PM, 79) 
+Allums-->   (DAPA, 62) (RTN, 68) 
+Braden-->   (ES, 89) (IRP, 40) 
+Andrew-->   (AR, 52) 
+Allinson-->   (HCI, 85) (IRP, 91) 
+Joel-->  (BIO2, 81) 
+Cristina-->   
+Alders-->   (AR, 68) 
+Kaia-->  (HCI, 97) 
+Adrian-->   (ANLP, 72) 
+Dayana-->   
+Aborn-->   (DAPA, 53) 
+Kallie-->  (DISS, 90) (DMR, 66) (TTS, 74) 
+John-->  (AGTA, 55) 
+Anctil-->  (ADBS, 47) (AR, 85) (IRP, 63) (NIP, 81) (PM, 89) 
+Bowen-->   (COC, 99) 
+Judith-->   
+Ailstock-->  (ADS, 68) (CCN, 41) (DISS, 84) 
+Annas-->  (ADBS, 76) (NIP, 92) 
+Able-->   (CCN, 44) 
+Anable-->   
+Kali-->   
+Anslow-->   (AR, 61) (ASR, 73) (BIO1, 86) (COPT, 87) (HCI, 42) (PM, 40) 
+Acklin-->   (ADS, 77) (AR, 69) 
+Acomb-->   (ADBS, 40) (AGTA, 92) (AR, 40) 
+Abby-->   (AR, 44) (DISS, 54) (DMR, 57) (IJP, 55) (RTN, 100) 
+Kaitlin-->   
+Ace-->   (INF1-CG, 100) (NIP, 89) 
+Benjamin-->  (ANLP, 55) (INF2D, 75) (RTN, 52) (TTS, 71) 
+Age-->   (IJP, 58) 
+Antill-->   
+Delaney-->  (AR, 40) (RTN, 80) 
+Ament-->   (ANLP, 93) (RTN, 56) 
+Kaitlyn-->  (ASR, 96) (BIO2, 54) (CT, 92) 
+Abrahams-->   
+Daisy-->  (ADS, 61) (INF2D, 51) 
+Kallie-->  (AGTA, 79) (CCN, 80) 
+George-->  (AV, 62) (INF1-CG, 72) (IRP, 56) 
+Ally-->   
+Dana-->  (AGTA, 45) 
+James-->  (ABS, 66) 
+Alsbrook-->   (IJP, 51) (INF1-CG, 53) 
+Alfred-->  (ADBS, 64) (HCI, 80) (INF2D, 88) (TDD, 73) 
+Colleen-->   
+Arkell-->  (ANLP, 67) (AR, 43) (ASR, 92) (IJP, 73) 
+Alsobrook-->   (COC, 40) (DMR, 87) 
+Adrian-->   (ADS, 48) (COPT, 49) 
+Alfrey-->   
+Alton-->   (PM, 60) 
+Julianna-->  (AV, 66) 
+Adkins-->   (ASR, 74) (PPLS, 85) 
+Annas-->   (TDD, 99) 
+Kieran-->   
+Agate-->   (ANLP, 75) (IJP, 87) (NIP, 79) 
+Appleyard-->   (COPT, 77) (EXC, 40) (NIP, 87) 
+Mason-->  (ADBS, 61) (CCN, 73) (COC, 55) (PPLS, 55) 
+Angleton-->   (BIO2, 96) (ES, 87) 
+Delilah-->  (CCN, 74) 
+Ake-->   
+Brandan-->   
+Alderman-->   
+Kallie-->   
+Joshua-->  (ABS, 58) 
+Julianna-->  (COC, 95) 
+Acton-->   (NIP, 67) 
+Arledge-->   
+Applewhite-->   (ES, 95) (IRP, 93) (TTS, 52) 
+Acre-->   (ADS, 58) (RTN, 91) 
+Allton-->   
+Anable-->   (COPT, 100) (PM, 78) 
+Delilah-->  (AGTA, 78) (AR, 99) (AV, 90) 
+Dominic-->   
+Akey-->   (ASR, 73) 
+Alworth-->   
+Annis-->   (DMR, 51) (IAML, 79) 
+Age-->   (HCI, 73) (INF1-CG, 97) (INF2D, 51) 
+Samuel-->   
+Harvey-->   (IRP, 66) 
+Deja-->   (IRR, 84) 
+Barry-->   (COPT, 52) (HCI, 95) 
+Amey-->   (COPT, 45) (HCI, 71) 
+Alleyne-->   (PPLS, 76) 
+Antcliff-->   (RTN, 84) 
+Andry-->   (INF1-CG, 96) 
+Amos-->   
+Alewine-->   
+Alcott-->   
+Joyce-->  (ASR, 87) 
+Adderly-->   (ASR, 54) (BIO1, 42) (ES, 97) (HCI, 79) (INF2D, 62) (NIP, 63) (TDD, 53) 
+Arington-->   (HCI, 54) 
+Alfrey-->   (COPT, 57) (TTS, 52) 
+Liam-->   (TTS, 49) 
+Ally-->   (COC, 46) (TTS, 65) 
+Judith-->   
+Arendale-->   (IRR, 93) (TTS, 53) 
+Kali-->  (INF1-CG, 65) (INF2D, 87) 
+Kaitlynn-->  (IRP, 82) 
+Agers-->   (DMR, 90) (TDD, 83) 
+Aiton-->   
+Andry-->   (AV, 75) (DISS, 54) (ES, 98) (RTN, 53) (TTS, 97) 
+Darlene-->  (ASR, 78) (COC, 85) (EXC, 57) (INF2D, 86) (PPLS, 91) (TDD, 56) 
+Kian-->  (AR, 49) (CT, 86) 
+Acy-->   
+Kaitlynn-->   
+Aldis-->   (ASR, 68) (BIO2, 77) (HCI, 46) (PM, 57) 
+Ammon-->   (IJP, 88) 
+Angley-->   (BIO2, 65) 
+Dylan-->   (NIP, 92) 
+Brandan-->   (NIP, 86) 
+Deanna-->  (COC, 64) (DAPA, 82) (INF1-CG, 59) (IRP, 82) 
+Ament-->   (DISS, 96) 
+Allred-->  (ADS, 72) (RTN, 47) 
+Dania-->   (SLIP, 51) 
+Joseph-->  (HCI, 94) (IAML, 98) (TTS, 62) 
+Amber-->   (AV, 47) (CCN, 58) 
+Aldred-->   (IRP, 79) 
+Jonathan-->   
+Adcox-->   (SLIP, 85) 
+Addington-->   (INF1-CG, 64) 
+Arden-->   
+Amerson-->   (IRP, 66) (RTN, 41) 
+Allmand-->   
+Ager-->   (COC, 81) (DMR, 85) (INF1-CG, 76) (INF2D, 96) 
+Harvey-->   
+Allam-->   
+Ambler-->  (ADS, 49) 
+Lewis-->   
+Joshua-->  (IJP, 83) 
+Alcock-->  (AGTA, 91) 
+Appleby-->  (ADBS, 61) 
+Annear-->   (DMR, 85) (IRP, 70) 
+Ellis-->   (IAML, 61) 
+Kai-->   
+Benjamin-->   (IAML, 82) 
+Alligood-->   
+Bradley-->   (ES, 65) 
+Deasia-->  (ANLP, 44) 
+Dayana-->   (IRP, 56) 
+Allport-->   (DISS, 90) 
+Allan-->   (AV, 94) 
+Allread-->   (IJP, 47) 
+Abbs-->   (DAPA, 88) 
+Jay-->  (EXC, 94) (HCI, 61) (NIP, 52) 
+Abramson-->   (ES, 58) 
+Alley-->   (DAPA, 73) (DISS, 100) (TDD, 62) 
+Mohammad-->   
+Reece-->  (CT, 78) (PPLS, 62) 
+Arendale-->   (ASR, 60) (IRR, 40) (PPLS, 86) 
+Albro-->   (IRR, 42) 
+Liam-->  (ES, 54) 
+Juliet-->   
+Kamryn-->   
+Alliston-->   (BIO2, 59) 
+Kyle-->   
+Andrus-->   
+Ailey-->   (BIO1, 82) (DISS, 43) (HCI, 51) (IJP, 96) (IRP, 58) (PM, 62) (TDD, 82) 
+Finley-->  (ABS, 42) 
+Albin-->   (DISS, 94) 
+Joshua-->  (AGTA, 75) (EXC, 78) (NIP, 75) 
+Applin-->   (ASR, 75) (IJP, 44) 
+Matthew-->  (BIO2, 56) (DAPA, 75) 
+Adey-->   
+Allday-->   
+Allison-->   
+Alcott-->   
+Angwin-->  (ABS, 44) 
+Allie-->   (PPLS, 76) (TTS, 72) 
+Agers-->   (TDD, 69) 
+Apps-->   
+Kaley-->  (BIO2, 100) (TDD, 82) 
+Delaney-->  (AGTA, 86) (INF1-CG, 69) 
+Acton-->   
+Alsop-->   
+Acton-->   (AR, 47) 
+Abrams-->   
+Kaela-->  (INF1-CG, 87) (IRR, 45) 
+Allee-->   
+Acre-->   (DISS, 48) (PPLS, 68) (RTN, 98) 
+Anger-->   (HCI, 65) 
+Ager-->   
+Andrews-->   (AR, 59) (TTS, 56) 
+Andros-->   
+Appleberry-->   (AV, 63) (IAML, 60) (SLIP, 74) 
+Archdeacon-->   
+Leon-->   
+Corinne-->   
+Ackers-->   (BIO2, 51) (PM, 77) 
+Allsup-->   
+Angevine-->   (DAPA, 62) 
+Leo-->   (TTS, 77) 
+Akin-->   
+Addams-->   
+Aldrich-->   
+Basil-->   
+Braden-->   
+Abbitt-->   (PPLS, 59) 
+Anstey-->   (BIO2, 93) (ES, 79) 
+Anstead-->   
+Aney-->   (EXC, 60) (INF1-CG, 63) 
+Angel-->  (ADBS, 56) (COPT, 40) (DAPA, 96) (DMR, 61) 
+Alfred-->   
+Dasia-->   
+Acors-->   
+Leon-->   (TTS, 74) 
+Agar-->   
+Arlington-->   (IRR, 73) (SLIP, 89) 
+Amason-->  (ADBS, 40) (IAML, 58) 
+Isaac-->   
+Ady-->   (COC, 86) 
+Addis-->   (CT, 61) 
+Antle-->   (CT, 54) (IAML, 77) (INF1-CG, 93) (TTS, 51) 
+Jay-->  (IJP, 43) 
+Andrew-->   (BIO2, 71) (IRP, 84) 
+Algood-->   (INF2D, 91) 
+Cristina-->   (EXC, 88) 
+Kaiya-->   
+Able-->   
+Annable-->   
+Finley-->  (AGTA, 70) 
+Tyler-->  (TDD, 98) 
+Barrett-->   (COC, 43) 
+Appling-->   
+Andrew-->   (ASR, 83) (ES, 72) 
+Liam-->   
+Joshua-->  (AR, 77) 
+Appleyard-->   
+Andros-->   (TDD, 61) 
+Anable-->   
+Deasia-->   
+Afton-->   (INF1-CG, 94) 
+Danielle-->   
+Abbett-->   
+Finlay-->   
+Ament-->   (AV, 71) 
+Taylor-->  (PM, 100) 
+Akers-->   
+Acuff-->   
+Alvey-->   
+Agate-->   (DMR, 86) (INF1-CG, 83) 
+Allie-->   (IJP, 94) 
+Annas-->  (AGTA, 49) (ES, 93) (IRR, 61) (TTS, 66) 
+Baird-->   
+Sean-->  (DAPA, 52) 
+Arden-->  (ADS, 89) 
+Archey-->   (IAML, 96) (NIP, 61) (PM, 53) 
+Bevis-->   
+Acock-->   (PPLS, 50) 
+Harvey-->   
+Arbon-->   (DAPA, 49) 
+Albany-->   (DMR, 94) 
+Abney-->   (ABS, 65) (AGTA, 88) 
+Ammon-->  (ADBS, 63) 
+Applewhite-->   
+Akey-->   (ES, 45) (SLIP, 93) 
+Andros-->   
+Allford-->   (ANLP, 73) (BIO2, 88) (IAML, 87) 
+Akerley-->   (INF1-CG, 95) (TTS, 54) 
+Ackerman-->   
+Ackerman-->  (ABS, 79) (BIO1, 80) 
+Ansted-->   
+Allender-->   (ANLP, 60) 
+Alridge-->   
+Courtney-->   (SLIP, 69) 
+Arber-->   
+Apple-->   (COC, 85) 
+Adkins-->   (NIP, 98) 
+Blake-->   (CCN, 60) (CT, 87) 
+Leo-->  (ADS, 89) (ES, 40) (IAML, 94) (INF2D, 87) 
+Sam-->  (DISS, 67) 
+Damaris-->  (AGTA, 74) (INF1-CG, 97) 
+Addison-->   
+Abbe-->   
+Angwin-->   
+Ackers-->   (AGTA, 78) 
+Aley-->   
+Akerley-->   
+Antell-->   
+Ancell-->   (TDD, 42) (TTS, 98) 
+Amor-->   
+Alltop-->   
+Leon-->   
+Deanna-->   
+Albert-->   (CT, 45) 
+Ake-->   (ES, 48) 
+Ellis-->  (COC, 80) 
+Ancell-->  (ADBS, 74) (IAML, 81) 
+Ryan-->   
+Alcott-->  (ADBS, 67) (TDD, 67) 
+Kailey-->  (ANLP, 90) 
+Aldous-->   (DMR, 100) (IAML, 49) 
+Adey-->   (ASR, 53) 
+Appleberry-->   
+Appling-->   (IJP, 92) 
+Finlay-->   
+Alden-->   
+Applewhite-->   
+Brandan-->   
+Acey-->   (RTN, 93) 
+Allen-->   (COC, 43) 
+Addy-->   (BIO1, 78) (TDD, 73) 
+Amason-->   
+Alworth-->   (INF1-CG, 74) (NIP, 63) 
+Abbs-->   
+Alwood-->   
+Aduddell-->   (AR, 72) (INF2D, 67) 
+Alwin-->   (BIO2, 48) (EXC, 59) (SLIP, 74) 
+Agate-->   
+Alston-->  (ABS, 66) 
+Allsbrook-->   (ASR, 55) (CT, 79) 
+Appley-->   
+Angleton-->   (BIO2, 97) 
+Albin-->  (AGTA, 85) (SLIP, 98) 
+Acker-->   
+Alderman-->   
+Antell-->   
+Ethan-->  (AR, 43) (CT, 41) 
+Ryan-->  (IRP, 74) (TDD, 54) 
+Corinne-->   
+Alsobrook-->   (NIP, 83) 
+Julianna-->   
+Ailey-->   
+Dasia-->   (DISS, 64) (DMR, 50) (SLIP, 64) 
+Bevis-->  (AGTA, 66) (EXC, 68) (TDD, 92) 
+Abrahams-->   
+Argent-->   
+Annear-->   
+Amesbury-->   (TTS, 77) 
+Allsup-->   (IJP, 98) 
+Elliot-->   (INF1-CG, 69) 
+Dana-->   (SLIP, 50) 
+Appleberry-->   (DAPA, 40) (DISS, 57) 
+Anne-->   (IRR, 98) (SLIP, 94) 
+Claudia-->   (DMR, 97) (SLIP, 84) 
+Kalyn-->  (COPT, 85) (DAPA, 55) (ES, 89) (IJP, 87) (NIP, 54) (TTS, 67) 
+Ackerly-->  (ABS, 53) 
+Anable-->   
+Ammon-->   (AV, 66) 
+Alcock-->   
+Alltop-->   
+Archer-->  (ADS, 62) (BIO1, 75) 
+Lewis-->  (CCN, 95) 
+Anguish-->   (NIP, 99) 
+Alvey-->   
+Aldrich-->   
+Amory-->   (PPLS, 53) 
+Allison-->   (INF2D, 60) 
+Cora-->   
+Leo-->   
+Allyn-->   (COPT, 91) (IRP, 51) 
+Blair-->   
+Amor-->   (AV, 67) (BIO1, 97) 
+Kamryn-->  (DAPA, 71) 
+Kyle-->  (AGTA, 44) (COPT, 60) (TDD, 99) 
+Appleberry-->   (BIO1, 83) 
+Ansell-->   (COC, 62) 
+Bartholomew-->  (ANLP, 72) (DISS, 52) (INF1-CG, 86) 
+Antrobus-->   
+Jamie-->   
+Allender-->   
+Angley-->   (ANLP, 54) (DISS, 81) 
+Adrian-->   
+Acton-->   (AV, 45) (DMR, 88) (ES, 100) 
+Jonathan-->  (AR, 90) 
+Ethan-->   
+Addicott-->   (COC, 78) (INF2D, 51) 
+Thomas-->  (COC, 50) 
+Allanson-->   (IAML, 71) 
+Ambrose-->   (BIO1, 44) 
+Albright-->   
+Baird-->   
+Alsip-->   (SLIP, 89) 
+Tyler-->  (CCN, 47) 
+Andrews-->   
+Allen-->   
+Dasia-->  (ADS, 58) 
+Braden-->   (HCI, 75) 
+Allam-->   
+Oscar-->  (ABS, 67) (COPT, 74) (DISS, 44) (PM, 64) 
+Addison-->   
+Ryan-->  (CT, 47) 
+Braden-->   
+Bernard-->   (COPT, 42) 
+Angley-->   (ES, 51) 
+Samuel-->  (IJP, 40) 
+Acre-->   
+Abbe-->   
+Elliot-->   
+Joe-->   
+Alman-->  (ADS, 99) (ASR, 47) (ES, 66) (IRP, 96) (SLIP, 79) (TDD, 80) 
+Daisy-->  (BIO1, 87) 
+John-->   (PPLS, 50) 
+Addis-->   
+Alling-->   (BIO1, 61) (CCN, 63) 
+Ainsworth-->   
+Harvey-->  (CT, 49) 
+Applebee-->   
+Arling-->   
+Allred-->  (ADBS, 82) (AGTA, 54) (COPT, 85) (DMR, 59) (EXC, 58) 
+Aliff-->   
+Anable-->   (BIO1, 66) (COC, 56) (IRP, 92) 
+Basil-->   
+Alcock-->   (EXC, 59) 
+Allday-->   
+Abbot-->   (PPLS, 98) 
+Louis-->   
+Angley-->   
+Acuff-->   (AR, 76) (INF1-CG, 42) 
+Annis-->   
+Kyle-->  (ASR, 64) (DISS, 41) (EXC, 87) 
+Anstead-->   
+Anthony-->  (ANLP, 61) (DISS, 82) (IJP, 87) (INF1-CG, 86) 
+Finley-->  (DMR, 79) 
+Cynthia-->   
+Allard-->   
+Kacie-->   
+Arendale-->   (DMR, 46) 
+Andrus-->   
+Appleberry-->   (CCN, 44) 
+Finley-->   (IAML, 57) 
+Anthony-->   
+Barclay-->   
+Alders-->   (COC, 93) (CT, 70) (IJP, 54) (INF1-CG, 53) (TTS, 49) 
+Afton-->   
+Almond-->   
+Dominic-->   
+Damaris-->   
+Barry-->   
+Allford-->   (AR, 82) (ASR, 46) (RTN, 58) 
+Dakota-->   (IRP, 45) (TTS, 79) 
+Ainslie-->   
+Kailey-->   (PM, 80) 
+Barclay-->   (DMR, 76) 
+Ambrose-->   (ASR, 84) (DISS, 76) (EXC, 84) (INF1-CG, 77) (INF2D, 55) (TDD, 53) (TTS, 91) 
+Delilah-->  (CCN, 78) (DISS, 66) (DMR, 74) 
+Antley-->   (DMR, 67) 
+Allard-->  (AGTA, 87) 
+Logan-->  (IRR, 96) 
+Cora-->   (PPLS, 81) (TDD, 79) 
+Ackerley-->   
+Basil-->   
+Anchors-->   (HCI, 75) 
+Anderson-->   
+Amis-->   
+Alvin-->   (AR, 41) 
+Allums-->   (TDD, 92) 
+Allenson-->   
+Kaila-->  (CCN, 64) (ES, 51) 
+Jacob-->  (COC, 95) (ES, 82) 
+Denise-->   
+Appley-->   
+Alvis-->   
+Allman-->   (SLIP, 79) 
+Arendale-->   
+Daphne-->   
+William-->   
+Ady-->   (IRR, 77) 
+Andros-->   
+Allston-->   (CCN, 92) 
+Lewis-->   
+Barnaby-->   
+Allums-->   
+Damaris-->   (TTS, 54) 
+Kaelyn-->   
+Acklin-->   (AGTA, 84) (TTS, 100) 
+Samuel-->   
+Alward-->   
+Alcock-->   (BIO2, 100) (TDD, 76) 
+Daisy-->   (IJP, 96) 
+Adgate-->   
+Anselm-->   
+Joseph-->   
+Abbs-->   
+Benedict-->   
+Alvord-->   
+Archey-->   
+Ackers-->   
+Anstead-->   
+Corinne-->  (ABS, 59) (BIO1, 89) (INF1-CG, 87) (RTN, 96) 
+Baron-->   (EXC, 47) 
+Angel-->  (ADBS, 66) 
+Delaney-->   (EXC, 41) 
+Colleen-->  (BIO1, 46) 
+Luca-->   
+Justice-->   
+Amos-->   (COPT, 58) 
+Adderly-->   
+Ager-->   
+Adgate-->   (DAPA, 84) 
+Angevine-->  (ABS, 78) (BIO2, 76) (DAPA, 95) (ES, 58) (INF2D, 72) (SLIP, 95) 
+Kailyn-->   
+Joel-->   
+Adkins-->   
+Kacie-->   
+Abdon-->   
+Arford-->   
+Reece-->   (TTS, 82) 
+Amis-->   
+Alltop-->   
+Allport-->   (NIP, 89) 
+Alloway-->  (ADS, 89) (CCN, 50) 
+Ady-->   
+Ammon-->   (BIO1, 89) (DMR, 60) (TTS, 61) 
+Allsopp-->   (BIO1, 99) 
+Alton-->   
+Allinson-->   
+Amber-->   (IRP, 75) 
+Ackerman-->   (COPT, 65) 
+Antil-->   
+Ancell-->   
+Sebastian-->  (INF2D, 66) 
+Kyle-->   (SLIP, 51) 
+Albro-->   
+Allis-->   
+Ailstock-->   
+Cora-->   
+Abbott-->   
+Baird-->   
+Kaitlin-->   
+Allison-->   
+Danielle-->   (IRP, 57) 
+Angwin-->   
+Deasia-->  (AGTA, 65) (ANLP, 54) (IJP, 77) 
+Allnutt-->   (TTS, 45) 
+All-->   
+Ager-->  (ADS, 80) (IRR, 73) (SLIP, 86) 
+Annis-->   
+Anderson-->   
+Allcorn-->   
+Acomb-->   
+Addison-->   
+Almond-->   
+Addicott-->   
+Ale-->   (SLIP, 64) 
+Apling-->   
+Alleyne-->   (PPLS, 72) 
+Alsop-->   (TTS, 55) 
+Akers-->   (INF1-CG, 82) (TDD, 85) 
+Jordan-->  (CT, 65) 
+Peter-->   
+Allender-->   
+Basil-->   
+Acock-->   (COPT, 58) 
+Alridge-->  (AGTA, 68) 
+Michael-->  (COC, 77) (DAPA, 90) (IRP, 81) 
+Arch-->   (IAML, 97) (IRP, 50) (PPLS, 91) 
+Antle-->   
+Aguillard-->   (IJP, 66) 
+Jamie-->   
+Alsobrook-->   
+Ackerly-->   
+Allport-->   
+Abney-->   
+Bernard-->  (AV, 54) (TTS, 82) 
+Alberts-->   (BIO2, 56) 
+Julianna-->  (COC, 59) 
+Annable-->  (ABS, 84) (ADS, 41) (BIO1, 96) (PM, 50) 
+Apland-->   
+Finlay-->   (INF2D, 62) 
+Andros-->   
+Kalyn-->   
+Arden-->   (INF2D, 83) 
+Louis-->   
+Allton-->   
+Acker-->   (AR, 68) 
+Allender-->   
+Bevis-->   (ES, 80) 
+Arling-->  (AR, 71) (CT, 41) (INF1-CG, 70) (NIP, 49) (RTN, 64) (SLIP, 41) 
+Allsup-->   
+Arkwright-->   (BIO1, 76) 
+Alway-->   (TTS, 73) 
+Alligood-->   (ANLP, 46) 
+Allread-->   (AR, 78) 
+Alleyne-->   (TDD, 86) 
+Anker-->   
+Agate-->   
+Ethan-->   
+Kalyn-->   (PM, 50) 
+Spencer-->  (ADS, 92) (INF2D, 70) (TTS, 63) 
+Jamie-->  (IJP, 52) 
+Ally-->   
+Josh-->  (ADS, 50) 
+Elliot-->   (PPLS, 79) 
+Allis-->   (PM, 100) 
+Kian-->   
+Ackerly-->   (PPLS, 52) 
+Abby-->   
+Akin-->   
+Arington-->   
+Allgood-->  (ADBS, 76) 
+Joyce-->  (IJP, 68) 
+Alvord-->   
+Antill-->   (PM, 48) 
+Allgood-->   
+Allanson-->   
+Aldrich-->   
+Boris-->   
+Lucas-->   
+Adey-->   
+Allred-->   
+Alison-->   (EXC, 61) (IAML, 61) 
+Spencer-->  (DAPA, 41) 
+Akin-->   (COC, 87) (HCI, 80) 
+Allerton-->   
+Nicholas-->   
+Ansell-->   
+Adkins-->   
+Amerson-->   
+Angevine-->   
+Addington-->   
+Kaitlynn-->   
+Finley-->  (ASR, 62) (BIO1, 100) (TTS, 43) 
+Ethan-->  (ADBS, 54) 
+Barry-->   
+Amor-->   (BIO1, 40) 
+Alkins-->   
+Taylor-->   
+Arkwright-->   
+Amesbury-->   
+Akehurst-->   
+Daniella-->   
+Allison-->   (CT, 88) 
+Adkins-->   (DAPA, 68) (NIP, 88) 
+Addis-->   
+Basil-->   
+Amey-->   
+Acre-->   
+Arendall-->   
+Amerson-->   
+Anderton-->   
+Alderson-->   (ASR, 72) 
+Albin-->   
+Antley-->  (ABS, 62) (IAML, 98) 
+Allford-->   
+Acreman-->   
+Argent-->  (AGTA, 68) 
+Alderton-->   
+Amos-->   
+Benton-->   
+Allman-->   
+Bradley-->   
+Anselm-->   
+Arington-->   (NIP, 55) 
+Allam-->   (IJP, 87) 
+Jude-->  (BIO1, 79) (BIO2, 99) (CCN, 63) (DAPA, 94) 
+Darlene-->  (AR, 60) 
+Alkins-->   (IRP, 75) 
+Abney-->   
+Allender-->   
+Thomas-->   
+Arling-->   
+Kaela-->  (IAML, 65) (PM, 55) 
+Aldis-->   
+Brandan-->   
+Kaitlyn-->  (ES, 52) 
+Sebastian-->  (ADS, 60) (CCN, 86) (INF2D, 57) (TDD, 99) 
+Abram-->   
+Alsbury-->   
+Thomas-->   
+Anable-->   (IAML, 89) 
+Agate-->   
+Brandan-->   
+Allanson-->   
+Ailstock-->   (PPLS, 45) 
+Juliet-->   (SLIP, 65) 
+Allie-->   
+Blake-->   
+Archdeacon-->   (PPLS, 54) (TDD, 70) 
+Andrus-->   (RTN, 97) 
+Dylan-->   
+Kaleigh-->   
+Kieran-->   
+Acre-->   
+Ainslie-->   
+Julissa-->   
+Angle-->  (ADS, 55) 
+Acey-->   
+Antell-->   
+Agar-->   (CCN, 92) (COC, 65) (CT, 44) (NIP, 69) (TTS, 78) 
+Ackroyd-->   
+Acre-->   
+Applebee-->   
+Deja-->   
+Antell-->   
+Age-->   
+Applegate-->   
+Isaac-->   
+Anderton-->   (COC, 67) 
+Allis-->   
+Anchors-->   (DAPA, 50) (RTN, 87) 
+Aleck-->   
+Amory-->   
+Ackley-->   
+Dakota-->   
+Kaila-->   
+Alborn-->   
+Appley-->   
+Cristal-->   
+Allnutt-->   
+Acuff-->   (ES, 91) 
+Alred-->   (NIP, 50) 
+Mohammad-->   
+Ansley-->   
+Arford-->   
+Ackers-->   
+Acton-->   
+Ansell-->   
+Ace-->   
+Adwell-->   
+Mohammad-->   
+Ady-->   
+Kaleigh-->  (ANLP, 97) (BIO1, 54) (INF2D, 70) (TDD, 54) 
+Alvey-->   
+Abbs-->   
+Ackley-->   
+Kaleigh-->   
+Almy-->   
+Ake-->   
+Finley-->   
+Deanna-->   
+Anstey-->   
+Arden-->   
+Arling-->   
+Mohammad-->   
+Agate-->   
+Addison-->   (IJP, 68) 
+Benedict-->   
+Aduddell-->   
+Alsup-->   
+Aliff-->   
+Abdon-->   
+Allred-->   
+Anable-->   
+Albany-->  (ABS, 42) (ANLP, 68) (TTS, 58) 
+Louis-->   (TTS, 55) 
+Ackroyd-->   (IRP, 83) 
+Allston-->   (DAPA, 93) (NIP, 91) 
+Amber-->   
+Ainsworth-->   
+Kyle-->   
+Liam-->   
+Jordan-->   
+Baron-->   
+Alan-->   
+Addington-->   (AR, 98) (DAPA, 87) 
+Argent-->   
+Addy-->   
+Apps-->   
+Joel-->   
+Julie-->   
+Arden-->   
+Kyle-->   
+Daniella-->   
+Allee-->   (IRP, 78) (TDD, 67) 
+Aborn-->   
+Apling-->   (TTS, 54) 
+Allday-->   
+Aborn-->   
+Aliff-->   
+Alderson-->   
+Ansley-->   
+Corinne-->   
+Acres-->   
+Alligood-->   
+Ailstock-->   
+Abbott-->   
+Acock-->   (ADS, 70) (AGTA, 97) (AV, 86) (BIO1, 49) (DMR, 42) (IRP, 77) 
+Cristal-->   (PPLS, 82) 
+Allgood-->   
+Danielle-->   
+Ager-->   
+Joyce-->   
+Abbs-->   
+Appleby-->   
+Aldridge-->   
+Deanna-->   
+Amor-->   
+Juliette-->   
+Oliver-->   
+Arledge-->   
+Abbs-->   
+Daphne-->   
+Julianna-->   
+Arey-->   
+Akes-->   
+Andros-->   
+Kailyn-->   
+Bradley-->  (ABS, 71) 
+Arledge-->   
+Apley-->   (AR, 61) (AV, 50) (COPT, 91) (DISS, 45) (IRR, 62) 
+Aliff-->   
+Appley-->   
+Louis-->  (EXC, 53) 
+Anthony-->   
+Jacob-->   
+Dasia-->   
+Alvin-->   
+Alleyne-->   
+Darby-->   
+Allie-->   
+Ackers-->   (AR, 71) (BIO1, 94) 
+Allston-->   (INF1-CG, 97) 
+Kailyn-->   
+Anstead-->   
+Kyle-->   
+Alton-->   
+Amos-->   
+Abbey-->   
+Ackley-->   
+Allnutt-->   
+Apps-->   
+Argent-->   (ASR, 68) (SLIP, 90) 
+Allgood-->   
+Akin-->   
+Amison-->   
+Abrams-->   
+Aley-->   
+Kai-->   
+Allenson-->   
+Arch-->   
+Allnutt-->   
+Agers-->   
+Anable-->   
+Alger-->   
+Alderson-->   
+Alles-->   
+Agard-->   
+Blake-->   
+Arden-->   
+Mohammed-->   
+Baird-->   
+Adley-->   
+Addis-->   
+Ann-->   (NIP, 65) 
+Ainsley-->   
+Allwood-->   (PM, 69) 
+Allerton-->   
+Allums-->   
+Nicholas-->   
+Kacie-->   
+Anctil-->   
+Allington-->   
+Albury-->   
+Addams-->   
+Alban-->   (DAPA, 62) (DMR, 50) 
+Acors-->   
+Alan-->   
+Arledge-->   
+Alles-->   
+Abramson-->   (DAPA, 62) 
+Kaleigh-->   
+Andry-->   
+Brandan-->   
+Daphne-->   
+Acomb-->   
+Ansted-->   (DISS, 54) (TDD, 51) (TTS, 97) 
+Arey-->   
+Angle-->   
+Andrews-->   
+Juliana-->   
+Ackerman-->   
+Kacie-->   
+Aplin-->   
+Jamie-->   
+Abby-->   
+Alvis-->   
+Claudia-->  (ABS, 92) (ES, 64) (TDD, 63) 
+Addison-->   
+Archbold-->   
+Barnaby-->   
+Deborah-->   
+Bowen-->   
+Afton-->   
+Allcorn-->   
+Abby-->   (BIO1, 91) 
+Age-->   
+Alridge--> 

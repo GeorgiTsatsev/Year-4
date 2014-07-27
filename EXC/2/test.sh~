@@ -1,0 +1,3 @@
+#!/bin/bash
+cat uniSmall.txt | ./task8/mapper.py | sort -k1,1 | ./task8/reducer.py 
+

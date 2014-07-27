@@ -1,0 +1,12 @@
+#!/usr/bin/python
+import sys
+
+#input from standard input
+for line in sys.stdin:
+		
+	# Removing whitespace to produce more readable output.
+	line=line.strip()
+
+	tokens = line.split()
+	# Printing the key-value pair as key = line and value = number of words in that line.
+	print '%s' % len(tokens)

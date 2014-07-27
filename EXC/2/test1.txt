@@ -1,0 +1,6 @@
+student 1 George
+mark EXC 1 70
+student 2 Anna
+mark ADBS 1 80
+mark EXC 2 65
+mark TTS 1 80

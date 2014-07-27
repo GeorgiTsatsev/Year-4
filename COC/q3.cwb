@@ -1,0 +1,86 @@
+* q3.cwb
+
+* name: Georgi Tsatsev
+* matric: s1045049
+
+* Controller definitions for the five christmas lights.
+
+agent Controller1 = lowerSignal2.flash1.'upperSignal1.Controller1;
+
+agent Controller2 = flash2.'upperSignal2.lowerSignal3.'lowerSignal2.upperSignal1.
+		    'upperSignal2.lowerSignal3.Controller2;
+
+agent Controller3 = upperSignal2.'upperSignal3.lowerSignal4.flash3.'lowerSignal3.
+		    upperSignal2.'upperSignal3.lowerSignal4.'lowerSignal3.Controller3;
+
+agent Controller4 = upperSignal3.'upperSignal4.lowerSignal5.'lowerSignal4.
+		    upperSignal3.flash4.'lowerSignal4.Controller4;
+
+agent Controller5 = upperSignal4.flash5.'lowerSignal5.Controller5;
+
+* The Flash order.
+agent Flash = flash2.flash5.flash3.flash1.flash4.Flash;
+
+* The Process design.
+set L = {lowerSignal1,lowerSignal2, lowerSignal3, lowerSignal4, lowerSignal5, upperSignal1,
+				 upperSignal2, upperSignal3, upperSignal4, upperSignal5};
+agent Light = (Controller1 | Controller2 | Controller3 | Controller4 | Controller5)\L;
+
+* Property 0 - Light can only execute the actions flash(1), ... , flash(5) and tau
+echo "Property 0: should print out {flash1, ..., flash5}.";
+sort Light;
+echo "";
+
+* Property 1 - Controlleri can execute flashi, and none of flashj for j != i
+echo "Property 1: the set for each Controller i should not include flashj for j != i";
+echo "Controller 1:";
+sort Controller1;
+echo "Controller 2:";
+sort Controller2;
+echo "Controller 3:";
+sort Controller3;
+echo "Controller 4:";
+sort Controller4;
+echo "Controller 5:";
+sort Controller5;
+echo "";
+
+* Property 2 - Controller1 can only communicate with Controller2
+echo "Property 2: Controller i (i > 2) set is disjoint with Controller 1 set";
+echo "Controller 1:";
+sort Controller1;
+echo "Controller 3:";
+sort Controller3;
+echo "Controller 4:";
+sort Controller4;
+echo "Controller 5:";
+sort Controller5;
+echo "";
+
+
+* Property 3 - For i=2,3,4, Controller i can only communicate with Controller i-1 and Controller i+1.
+echo "Property 3: the set for each Controller i (i = 2, 3, 4) should only ";
+echo "contain flash(i), upperSignal(N) and lowerSignal(N) for i-1 <= N <= i+1 ";
+echo "Controller 2:";
+sort Controller2;
+echo "Controller 3:";
+sort Controller3;
+echo "Controller 4:";
+sort Controller4;
+echo "";
+
+* Property 4 - Controller5 can only communicate with Controller4
+echo "Property 4: Controller i (i < 4) set is disjoint with Controller 5 set";
+echo "Controller 5:";
+sort Controller5;
+echo "Controller 1:";
+sort Controller1;
+echo "Controller 2:";
+sort Controller2;
+echo "Controller 3:";
+sort Controller3;
+echo "";
+
+* Property 5 - Light is weakly bisimilar to Flash.
+echo "Property 5 - The property for weak bisimilarity.";
+eq(Light, Flash);

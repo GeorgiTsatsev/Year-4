@@ -1,0 +1,172 @@
+/* PPLS Assignment 2: PartB  --- Georgi Tsatsev - s1045049 
+
+compile instructions :
+	/usr/lib64/openmpi/bin/mpicc -o aquadPartB aquadPartB.c
+run instructions :
+	/usr/lib64/openmpi/bin/mpirun -c 5 ./aquadPartB
+
+Implementation:
+
+The program is divided into three main parts:
+
+The main function:
+
+It is provided by the assignment, calls the farmer and worker functions and is responsible for the MPI initialization and the printing of the results.
+
+The farmer function:	 
+
+There are two loops in the farmer function. The first one is responsible for the division of the tasks and a synchronous MPI primitive (MPI_Send with a WORK_TAG) is used to send each of the workers its own task. It basically sends the tasks to the workers. The second loop used to receive each worker’s final results for the area and the number of times they have called the quad function. Again a blocking synchronous MPI_Recv is used to get this with any tag. If one of the workers does not finish its task it would result in a deadlock but I have implemented this under the assumption that eventually the workers would finish. The function returns the cumulated area from all the workers in the end.
+
+The worker function:
+
+The worker function starts with a synchronous wild card MPI primitive to receive a task from the farmer. If the tag of the received message was a WORK_TAG (which is always the case in my implementation) then call the quad function, in which I have added a counter variable in order to determine how many times it has been called and after that use an MPI_Send to send the area and the counter.
+
+MPI primitives:
+
+The MPI primitives that I have used are synchronous blocking MPI_Send and MPI_Receive and because of the simplicity of this naïve partitioning there is no need for initial handshaking between the farmer and the workers so no need for MPI_Probe or MPI_Iprobe. Since there is no redivision of tasks and every worker works on the task given locally the simple version that I have implemented is better than using other MPI primitives.
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <mpi.h>
+#include "stack.h"
+
+#define EPSILON 1e-3
+#define F(arg)  cosh(arg)*cosh(arg)*cosh(arg)*cosh(arg)
+#define A 0.0
+#define B 5.0
+
+#define SLEEPTIME 1
+
+#define FARMER 0
+
+#define READY_TAG 0
+#define WORK_TAG 1
+#define AREA_TAG 2
+
+
+
+int *tasks_per_process;
+
+double farmer(int);
+void worker(int);
+double quad(double , double , double , double , double , int* );
+
+int main(int argc, char **argv ) {
+  int i, myid, numprocs;
+  double area, a, b;
+
+  MPI_Init(&argc, &argv);
+  MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD,&myid);
+
+  if(numprocs < 2) {
+    fprintf(stderr, "ERROR: Must have at least 2 processes to run\n");
+    MPI_Finalize();
+    exit(1);
+  }
+
+  if (myid == 0) { // Farmer
+    // init counters
+    tasks_per_process = (int *) malloc(sizeof(int)*(numprocs));
+    for (i=0; i<numprocs; i++) {
+      tasks_per_process[i]=0;
+    }
+  }
+
+  if (myid == 0) { // Farmer
+    area = farmer(numprocs);
+  } else { //Workers
+    worker(myid);
+  }
+
+  if(myid == 0) {
+    fprintf(stdout, "Area=%lf\n", area);
+    fprintf(stdout, "\nTasks Per Process\n");
+    for (i=0; i<numprocs; i++) {
+      fprintf(stdout, "%d\t", i);
+    }
+    fprintf(stdout, "\n");
+    for (i=0; i<numprocs; i++) {
+      fprintf(stdout, "%d\t", tasks_per_process[i]);
+    }
+    fprintf(stdout, "\n");
+    free(tasks_per_process);
+  }
+  MPI_Finalize();
+  return 0;
+}
+
+
+double farmer(int numprocs) {
+	
+	MPI_Status status;
+	
+	double area = 0.0;	
+	double point[2];
+	double left=A;
+
+	/* workers is a variable to keep the number of workers.*/
+	int workers = numprocs-1; 
+	int i;
+
+
+	double breakingpoint = (B-A)/workers;
+
+	for (i=1;i<=workers;i++){
+		point[0] = left;
+		point[1] = left+breakingpoint;
+		left = point[1];
+		MPI_Send(point, 2, MPI_DOUBLE, i, WORK_TAG, MPI_COMM_WORLD);
+	}
+	for (i=1;i<=workers;i++){
+		
+		
+		MPI_Recv(point, 2, MPI_DOUBLE, i, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+		
+		area+=point[0];
+		tasks_per_process[status.MPI_SOURCE]=point[1];
+		
+	}
+
+	return area;
+}
+
+void worker(int mypid) {
+	int tag;
+	double point[2];
+	MPI_Status status;
+	
+
+	MPI_Recv(point, 2, MPI_DOUBLE, FARMER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+	tag = status.MPI_TAG;
+	int cnt = 0;
+	if (tag == WORK_TAG){
+		double left = point [0];
+		double right = point [1];
+			
+		double area = quad(left, right, F(left), F(right), (F(left)+F(right)) * (right-left)/2, &cnt);
+		
+		point[0]=area;
+		point[1]=cnt;	
+		MPI_Send(point, 2, MPI_DOUBLE, FARMER, AREA_TAG, MPI_COMM_WORLD);
+	} 
+	
+	
+}
+
+double quad(double left, double right, double fleft, double fright, double lrarea,int* cnt) {
+  double mid, fmid, larea, rarea;
+  *cnt = *cnt + 1 ;
+  mid = (left + right) / 2;
+  fmid = F(mid);
+  larea = (fleft + fmid) * (mid - left) / 2;
+  rarea = (fmid + fright) * (right - mid) / 2;
+  if( fabs((larea + rarea) - lrarea) > EPSILON ) {
+    larea = quad(left, mid, fleft, fmid, larea, cnt);
+    rarea = quad(mid, right, fmid, fright, rarea, cnt);
+  }
+  return (larea + rarea);
+}
